@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "ac4f1e89-137e-4447-9b53-0aeb7057e4a6",
+		"name": "Api_brinquedos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "4714324"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "wilsontapia88@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:9085/api/login"
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "wilson huanca tapia",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "wilsontapia88@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9085/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9085",
+							"path": [
+								"api",
+								"register"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "wilson huanca tapia",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "wilsontapia88@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "clientes",
+			"item": [
+				{
+					"name": "criar cliente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "2|V8TsU85fU51e1Plsr9YZl4YvgAJnYlLRAJiIFO6F22ae9474"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"WILSON achachicala\",\r\n  \"email\": \"wilsontapia881@gmail.com\",\r\n  \"birthDate\": \"1985-05-19\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9085/api/clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "filtro cliente",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "2|V8TsU85fU51e1Plsr9YZl4YvgAJnYlLRAJiIFO6F22ae9474"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "persona teste1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "personasteste1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "birthDate",
+									"value": "1985/09/05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.6:9085/api/clientes?name=tapia",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"6"
+							],
+							"port": "9085",
+							"path": [
+								"api",
+								"clientes"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "tapia"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vendas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "2|V8TsU85fU51e1Plsr9YZl4YvgAJnYlLRAJiIFO6F22ae9474"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "date",
+									"value": "2025-05-11",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "150.30",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:9085/api/clientes/1/vendas"
+					},
+					"response": []
+				},
+				{
+					"name": "get clientes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "5|ueNPfrxfP1e1D4TWiSl2bXFrSz9JxKzc9i1GBwMR8729aca9"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "persona teste1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "personasteste1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "birthDate",
+									"value": "1985/09/05",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:9085/api/clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "get teste-clientes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "7|f1NRbhQytin5kRFtMlu9daG9xZKNhgGFflQTij3Jaafb158a"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "http://localhost:9085/api/teste-clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "ventas por dia",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "2|V8TsU85fU51e1Plsr9YZl4YvgAJnYlLRAJiIFO6F22ae9474"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "persona teste1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "personasteste1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "birthDate",
+									"value": "1985/09/05",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:9085/api/estatisticas/vendas-por-dia"
+					},
+					"response": []
+				},
+				{
+					"name": "top clientes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "2|V8TsU85fU51e1Plsr9YZl4YvgAJnYlLRAJiIFO6F22ae9474"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "persona teste1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "personasteste1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "birthDate",
+									"value": "1985/09/05",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:9085/api/estatisticas/top-clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "get cliente id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "3|co8hSHUb1297jC9IGKLNAdt2AlAicKOLPtLZvVJ73f39c3d8"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "persona teste1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "personasteste1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "birthDate",
+									"value": "1985/09/05",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:9085/api/clientes/11"
+					},
+					"response": []
+				},
+				{
+					"name": "editar cliente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "2|lBIqUI88NZj2K9zw318Smi5ha5HBFZ4sC8D8Meu9008ed56a"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "wilson huanca",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "personasteste1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "birthDate",
+									"value": "1985/09/05",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:9085/api/clientes/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,55 @@
+services:
+  app:
+    build:
+      context: .
+    image: brinquedo_app
+    container_name: brinquedo_app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./app:/var/www
+    networks:
+      - laravel_network
+
+  web:
+    image: nginx:latest
+    container_name: brinquedo_nginx
+    restart: unless-stopped
+    ports:
+      - "9085:80"  # Alterado para 9080:80
+    volumes:
+      - ./app:/var/www
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - laravel_network
+
+  mailpit:
+    image: axllent/mailpit
+    restart: unless-stopped
+    ports:
+      - "9055:8025"  # Alterado para 9025:8025
+      - "9155:1025"  # Alterado para 9125:1025
+    networks:
+      - laravel_network
+
+  mysql:
+    image: mysql:5.7
+    container_name: brinquedo_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: secret
+    ports:
+      - "9140:3306"  # Alterado para 9036:3306
+    volumes:
+      - mysql8_data:/var/lib/mysql
+    networks:
+      - laravel_network
+
+networks:
+  laravel_network:
+
+volumes:
+  mysql8_data:
