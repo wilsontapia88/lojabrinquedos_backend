@@ -130,11 +130,11 @@ routes/
 
 Você pode importar a coleção Postman e testar a API localmente.
 
-- 📁 Arquivo da coleção: `Api_brinquedos.postman_collection.json`
+- 📁 Arquivo da coleção: [docs/Api_brinquedos.postman_collection.json](./docs/Api_brinquedos.postman_collection.json)
 
 ### Como importar:
 
-1. Abra o Postman  
+1. Abra o Postman  git 
 2. Vá em **Importar**  
 3. Selecione o arquivo `Api_brinquedos.postman_collection.json`  
 4. Teste os endpoints disponíveis!
